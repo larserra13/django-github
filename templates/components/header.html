@@ -1,0 +1,98 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head> </head>
+  <body>
+    <div class="flex justify-between sticky top-0 z-50 bg-blue-300 ">
+      <!-- -LOGO- -->
+      <div class="">LOGO</div>
+
+   
+ <!-- -NAVBAR HEADER -->
+      <nav class="hidden md:block ">
+        <div class="flex justify-between">
+          <!-- -PAGES- -->
+          <ul class="flex justify-between gap-5">
+            <li class=""><a href="{% url 'index_url' %}">HOME</a></li>
+            <li class=""><a href="{% url 'about_url' %}">ABOUT</a></li>
+
+            <!-- -DROPDOWN- -->
+            <div
+              x-data="{drowdownOpen: false}"
+              x-cloak
+              @click="drowdownOpen = !drowdownOpen"
+              @click.away="drowdownOpen = false"
+              class="relative"
+            >
+              <div class="flex">
+                <span class="cursor-pointer select-none">PROJECTS </span>
+                <span class="ml-1 mt-1"
+                  ><img
+                    src="https://img.icons8.com/small/15/777777/expand-arrow.png"
+                    alt=""
+                    x-bind:class="drowdownOpen ? 'rotate-180 duration-300' : 'rotate-360 duration-300' "
+                /></span>
+              </div>
+
+              <div
+                x-show="drowdownOpen"
+                class="absolute bg-white text-black shadow rounded-lg w-25 p-2 z-20"
+                x-transition:enter="duration-300 ease-out"
+                x-transition:enter-start="opacity-0 -translate-y-5 scale-90"
+                x-transition:enter-end="opacity-100 -translate-y-0 scale-100"
+              >
+                <ul class="[&>li>a]:flex justify-items-end">
+                  <li><a href="{% url 'index_url' %}">Home</a></li>
+                  <li><a href="">STORE</a></li>
+                  <li><a href="">SCHOOL</a></li>
+                  <li><a href="">EMPLOYEE</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <li class=""><a href="{% url 'contact_url' %}">CONTACT</a></li>
+        </ul>
+
+          <!-- -CART- -->
+          <div class="">
+            <div class="">CART</div>
+          </div>
+</nav>
+   <!-- -MOBILE ICON- -->
+
+      <div x-data="{mobilenavOpen: false}" @click="mobilenavOpen = !mobilenavOpen"  class="md:hidden">
+        <div class="h-8 w-8 cursor-pointer hover:bg-gray-700 rounded-lg">
+          <img x-show="mobilenavOpen" x-cloak src="https://img.icons8.com/small/64/ffffff/delete-sign.png" alt="O" class="bg-slate-200 select-none  h-8 -my-1">
+            <img x-show="!mobilenavOpen" src="https://img.icons8.com/small/64/ffffff/menu.png" alt="X" class="bg-slate-200 select-none h-8 -my-1">
+             
+      
+        </div>
+                <nav x-show="mobilenavOpen" class="bg-gray-800 md:h-auto md:w-auto">
+                    <ul class="absolute left-2 ">
+                        <li class=""><a href="">HOME</a></li>
+                         <li class="block"><a href="">ABOUT</a></li>
+                          <li class="block"><a href="">CONTACT</a></li>
+                           <li class="block"><a href="">OTHERS</a></li>
+                            <li class="block"><a href="">SIGNIN</a></li>
+
+                    </ul>
+                </nav>
+
+      </div>
+
+
+          <!-- -AUTH- -->
+           <nav class="hidden md:block">
+        <div class="">
+              <ul class="flex justify-between gap-5">
+            <li class="">SIGN-UP</li>
+            <li class="">SIGN-IN</li>
+            <li class="">SIGN-OUT</li>
+          </ul>
+        </div>
+
+        </div>
+      </nav>
+    </div>
+  </body>
+</html>

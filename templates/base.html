@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+                        <!-- SCRIPTS AND CDN  -->
+                        {% include 'scripts.html' %} 
+ <!-- TITLE  -->
+    <title>
+                       
+                        {% block title %} 
+                            My Site 
+                        {% endblock %}
+    </title>
+</head>
+<body>
+
+                        <!-- HEADER  -->
+                        {% include 'components/header.html' %}
+
+                        {% block content %}
+                        <!-- content  -->
+                        {% endblock %}
+
+                        <!-- FOOTER  -->
+                        {% include 'components/footer.html' %}
+    
+</body>
+</html>
